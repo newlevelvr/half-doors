@@ -1,0 +1,30 @@
+name: Build and publish
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+      - name: setup jdk 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: gradle
+      - name: Build JAR
+        run: gradle build
+      - name: Find built jar
+        uses: DovnarAlexander/github-action-file-detection@master
+        id: built
+        with:
+          wildcard: '*.jar'
+          base_path: './build/libs/'
+      - name: Upload build artifacts to Discord
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+          content: "Собрана новая версия мода HalfDoors"
+          filename: ${{ steps.built.outputs.found }}
