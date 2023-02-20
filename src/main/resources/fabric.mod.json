@@ -26,12 +26,8 @@
       "amymialee.halfdoors.compat.emi.HalfDoorsEmiPlugin"
     ]
   },
-  "mixins": [
-    "halfdoors.mixins.json"
-  ],
   "depends": {
-    "fabric": "*",
-    "trinkets": ">=3.0.0"
+    "fabric": "*"
   },
   "custom": {
     "modmenu": {

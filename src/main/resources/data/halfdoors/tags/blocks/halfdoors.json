@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "halfdoors:iron_fence_gate",
     "halfdoors:iron_halfdoor",
     "halfdoors:oak_halfdoor",
     "halfdoors:spruce_halfdoor",

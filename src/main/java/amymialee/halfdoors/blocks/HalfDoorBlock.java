@@ -169,7 +169,7 @@ public class HalfDoorBlock extends Block {
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (direction.equals(Direction.DOWN) && (neighborState.getBlock() instanceof DoorBlock || neighborState.getBlock() instanceof HalfDoorBlock && neighborState.get(HINGE).equals(state.get(HINGE))))
-        world.setBlockState(pos, state.with(POWERED, state.get(POWERED)).with(OPEN, neighborState.get(OPEN)), Block.NOTIFY_LISTENERS);
+            world.setBlockState(pos, state.with(POWERED, state.get(POWERED)).with(OPEN, neighborState.get(OPEN)), Block.NOTIFY_LISTENERS);
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
